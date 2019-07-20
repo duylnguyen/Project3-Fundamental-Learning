@@ -18,7 +18,10 @@ export default class Problem extends Component {
     render() {
         return (
             <div>
-                <h1>{this.state.problem.name}</h1>
+                <p>{this.state.problem.name}</p>
+                <p>{this.state.problem.method}</p>
+                <p>{this.state.problem.description}</p>
+                <p>{this.state .problem.solution}</p>
             </div>
         )
     }
