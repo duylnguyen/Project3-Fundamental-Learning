@@ -21,8 +21,13 @@ function getSingleProblem(problemId) {
   return ProblemCollection.findById(problemId)
 }
 
+function updateProblem(problemId, updatedProblem) {
+  return ProblemCollection.findByIdAndUpdate(problemId, updatedProblem)
+}
+
 module.exports = {
   getAllProblems,
   createNewProblem,
-  getSingleProblem
+  getSingleProblem,
+  updateProblem
 }
