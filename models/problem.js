@@ -13,6 +13,11 @@ function getAllProblems() {
   return ProblemCollection.find()
 }
 
+function createNewProblem(problemObject) {
+  return ProblemCollection.create(problemObject)
+}
+
 module.exports = {
-  getAllProblems
+  getAllProblems,
+  createNewProblem
 }
