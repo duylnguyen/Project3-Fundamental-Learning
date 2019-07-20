@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import HelloWorld from './components/HelloWorld.js'
+import Problems from './components/Problems.js'
+import Problem from './components/Problem'
 import './App.css';
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={HelloWorld}/>
+          <Route exact path="/" component={Problems}/>
+          <Route path="/problems/:problemId" component={Problem} />
         </Switch>
       </Router>
     </div>
