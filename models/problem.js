@@ -25,9 +25,14 @@ function updateProblem(problemId, updatedProblem) {
   return ProblemCollection.findByIdAndUpdate(problemId, updatedProblem)
 }
 
+function deleteProblem(problemId) {
+  return ProblemCollection.findByIdAndDelete(problemId)
+}
+
 module.exports = {
   getAllProblems,
   createNewProblem,
   getSingleProblem,
-  updateProblem
+  updateProblem,
+  deleteProblem
 }

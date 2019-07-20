@@ -38,6 +38,15 @@ problemRouter.put('/:problemId', async (req, res) => {
   }
 })
 
+problemRouter.delete('/:problemId', async (req, res) => {
+  try {
+    await problemApi.deleteProblem(req.params.problemId)
+    res.json('Problem Deleted')
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 // problemRouter.get('/', (req, res) => {
 //   problemApi.getAllProblems()
 //     .then((problems) => {
