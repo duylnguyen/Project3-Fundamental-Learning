@@ -28,7 +28,7 @@ export default class Problem extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         
-        axios.put(`/api/creatures/${this.state.problem._id}`, this.state.problem)
+        axios.put(`/api/problem/${this.state.problem._id}`, this.state.problem)
             .then((res) => {
                 this.setState({
                     problem: res.data,
