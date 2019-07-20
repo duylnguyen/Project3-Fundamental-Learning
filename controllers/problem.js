@@ -20,6 +20,15 @@ problemRouter.post('/', async (req, res) => {
   }
 })
 
+problemRouter.get('/:problemId', async (req, res) => {
+  try {
+    const singleProblem = await problemApi.getSingleProblem(req.params.problemId)
+    res.json(singleProblem)
+  } catch(err) {
+    res.send(err)
+  }
+})
+
 // problemRouter.get('/', (req, res) => {
 //   problemApi.getAllProblems()
 //     .then((problems) => {

@@ -17,7 +17,12 @@ function createNewProblem(problemObject) {
   return ProblemCollection.create(problemObject)
 }
 
+function getSingleProblem(problemId) {
+  return ProblemCollection.findById(problemId)
+}
+
 module.exports = {
   getAllProblems,
-  createNewProblem
+  createNewProblem,
+  getSingleProblem
 }
