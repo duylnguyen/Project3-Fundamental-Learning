@@ -39,7 +39,31 @@ commentRouter.post('/', (req, res) => {
   req.body.problemId = req.params.problemId
     commentApi.addComment(req.body)
       .then((comment) => {
-        res.json('comment added')
+        res.json(comment)
+      })
+      .catch((err) => {
+        res.send(err)
+      })
+})
+
+commentRouter.get('/:commentId', (req, res) => {
+  problemApi.getSingleProblem(req.params.problemId)
+    .then((problem) => {
+      commentApi.getSingleComment(req.params.commentId)
+        .then((comment) => {
+          res.json({problem, comment})
+        })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
+})
+
+commentRouter.put('/:commentId', (req,res) => {
+  
+    commentApi.editComment(req.params.commemtId, req.body)
+      .then((updatedComment) => {
+        res.json(updatedComment)
       })
       .catch((err) => {
         res.send(err)

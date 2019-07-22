@@ -24,7 +24,17 @@ function addComment(comment) {
   return CommentCollection.create(comment);
 }
 
+function getSingleComment(commentId) {
+  return CommentCollection.findById(commentId)
+}
+
+function editComment(commentId, updatedComment) {
+  return CommentCollection.findByIdAndUpdate(commentId, updatedComment)
+}
+
 module.exports = {
   getAllCommentsByProblemId,
-  addComment
+  addComment,
+  getSingleComment,
+  editComment
 };
