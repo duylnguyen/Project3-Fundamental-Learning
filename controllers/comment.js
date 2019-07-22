@@ -60,8 +60,8 @@ commentRouter.get('/:commentId', (req, res) => {
 })
 
 commentRouter.put('/:commentId', (req,res) => {
-  
-    commentApi.editComment(req.params.commemtId, req.body)
+  req.body.problemId = req.params.problemId
+    commentApi.editComment(req.params.commentId, req.body)
       .then((updatedComment) => {
         res.json(updatedComment)
       })
