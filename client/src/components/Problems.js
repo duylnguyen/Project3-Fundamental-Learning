@@ -16,8 +16,6 @@ export default class Problems extends Component {
         this.setState({ problems: res.data })       
     }
 
-    
-
     render() {
         let problemsList = this.state.problems.map((problem) => {
             return (

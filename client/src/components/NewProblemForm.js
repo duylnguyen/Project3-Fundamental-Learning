@@ -1,24 +1,16 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom"
 import axios from "axios";
 
 export default class NewProblemForm extends Component {
   state = {
-    problems: [],
     newProblem: {
       name: "",
       method: "",
       description: "",
       solution: ""
-    }
-  };
-
-  componentDidMount() {
-    this.getAllProblems();
-  }
-
-  getAllProblems = async () => {
-    const res = await axios.get("/api/problem");
-    this.setState({ problems: res.data });
+    },
+    redirectToHome: false
   };
 
   handleInputChange = event => {
@@ -31,12 +23,18 @@ export default class NewProblemForm extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    axios.post(`/api/problem`, this.state.newProblem).then(res => {
-      this.setState({ newProblem: {} });
+    axios.post(`/api/problem`, this.state.newProblem)
+        .then(res => {
+            this.setState({ newProblem: res.data, redirectToHome: true});
     });
   };
 
   render() {
+
+    if (this.state.redirectToHome === true) {
+        return <Redirect to="/" />
+    }
+
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
@@ -89,7 +87,7 @@ export default class NewProblemForm extends Component {
           </div>
 
           <div>
-            <input type="submit" value="Create Problem" />
+            <input type="submit" value="Add Problem" />
           </div>
         </form>
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Comments from './Comments'
 
 export default class Problem extends Component {
   state = {
@@ -120,6 +121,7 @@ export default class Problem extends Component {
         <p>{this.state.problem.method}</p>
         <p>{this.state.problem.description}</p>
         <p>{this.state.problem.solution}</p>
+        <Comments {...this.props}/>
       </div>
     );
   }
