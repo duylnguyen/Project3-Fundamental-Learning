@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Comment from './Comment'
 
 export default class Comments extends Component {
 
     state = {
         comments: [],
-        isNewCommentFormDisplayed: false,
+        // isNewCommentFormDisplayed: false,
         newComment: {
             comment: '',
+        },
+        commentToUpdate: {
+
         }
     }
 
@@ -22,11 +26,11 @@ export default class Comments extends Component {
         this.setState({comments: res.data})
     }
 
-    handleToggleCreateCommentForm = () => {
-        this.setState((state) => {
-            return {isNewCommentFormDisplayed: !state.isNewCommentFormDisplayed}
-        })
-    }
+    // handleToggleCreateCommentForm = () => {
+    //     this.setState((state) => {
+    //         return {isNewCommentFormDisplayed: !state.isNewCommentFormDisplayed}
+    //     })
+    // }
 
     handleInputChange = (event) => {
         const copiedComment = {...this.state.newComment}
@@ -47,34 +51,60 @@ export default class Comments extends Component {
         this.getAllComments()
     }
 
+    handleUpdateInputChange = (event) => {
+        const copiedComment = {...this.state.commentToUpdate}
+        copiedComment[event.target.name] = event.target.value
+        copiedComment._id = event.target.id
+        
+        this.setState({commentToUpdate: copiedComment})
+    }
+
+    handleUpdateSubmit = (event) => {
+        const copiedComment = {...this.state.commentToUpdate}
+        copiedComment.posted = new Date()
+        axios.put(`/api/problem/${this.props.match.params.problemId}/comment/${this.state.commentToUpdate._id}`, copiedComment)
+            .then(() => {
+                this.getAllComments()
+            })
+    }
+
     render() {
         let commentsList = this.state.comments.map((comment) => {
+            let isCurrentlyEditing = comment._id === this.state.commentToUpdate._id
             return (
                 <div key={comment._id}>
-                    <p>{comment.comment}</p>
-                    <p>{comment.posted}</p>
+                    {/* <p>{comment.comment}</p>
+                    <p>{comment.posted}</p> */}
+                    <Comment
+                        {...this.props}
+                        comment={isCurrentlyEditing ? this.state.commentToUpdate.comment : comment.comment}
+                        posted={comment.posted}
+                        commentId={comment._id}
+                        handleUpdateInputChange={this.handleUpdateInputChange}
+                        handleUpdateSubmit={this.handleUpdateSubmit}
+                    />
                 </div>
             )
         })
 
         return (
-            this.state.isNewCommentFormDisplayed    
-                ? <form onSubmit={this.handleFormSubmit}>
+            // this.state.isNewCommentFormDisplayed    
+                <div>
+                    <h3>Comments</h3>
+                <form onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment">Comment</label>
                         <input 
-                            type="text" 
+                            type="text"
+                            placeholder="Type comment here ..." 
                             id="new-comment" 
                             name="comment" 
                             onChange={this.handleInputChange}
                             value={this.state.newComment.comment}
                             />
-
                         <input type="submit" value="Create Comment"/>
                 </form> 
-                : <div>
-                    <button onClick={this.handleToggleCreateCommentForm}>Add Comment</button>
+                    {/* <button onClick={this.handleToggleCreateCommentForm}>Add Comment</button> */}
                     <div>
-                        <h3>Comments</h3>
                         {commentsList}
                     </div>
                 </div>

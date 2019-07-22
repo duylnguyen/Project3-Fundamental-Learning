@@ -51,7 +51,7 @@ commentRouter.get('/:commentId', (req, res) => {
     .then((problem) => {
       commentApi.getSingleComment(req.params.commentId)
         .then((comment) => {
-          res.json({comment})
+          res.json(comment)
         })
     })
     .catch((err) => {
