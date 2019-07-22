@@ -46,6 +46,13 @@ export default class Comment extends Component {
         })
     }
 
+    handleDeleteComment = () => {
+        axios.delete(`/api/problem/${this.props.match.params.problemId}/comment/${this.props.commentId}`)
+        .then(() => {
+            this.props.getAllComments()
+        })
+    }
+
     render() {
         return (
             <div>

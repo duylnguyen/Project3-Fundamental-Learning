@@ -11,9 +11,7 @@ export default class Comments extends Component {
         newComment: {
             comment: '',
         },
-        commentToUpdate: {
-
-        }
+        commentToUpdate: {}
     }
 
     componentDidMount() {
@@ -82,6 +80,7 @@ export default class Comments extends Component {
                         commentId={comment._id}
                         handleUpdateInputChange={this.handleUpdateInputChange}
                         handleUpdateSubmit={this.handleUpdateSubmit}
+                        getAllComments={this.getAllComments}
                     />
                 </div>
             )
