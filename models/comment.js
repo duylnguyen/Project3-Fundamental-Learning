@@ -7,7 +7,7 @@ const CommentSchema = new mongoose.Schema({
   },
   posted: {
     type: Date,
-    required: Date.now
+    default: Date.now
   },
   problemId: {
     type: mongoose.Types.ObjectId
