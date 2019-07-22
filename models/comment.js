@@ -32,9 +32,14 @@ function editComment(commentId, updatedComment) {
   return CommentCollection.findByIdAndUpdate(commentId, updatedComment)
 }
 
+function deleteComment(commentId) {
+  return CommentCollection.findByIdAndDelete(commentId)
+}
+
 module.exports = {
   getAllCommentsByProblemId,
   addComment,
   getSingleComment,
-  editComment
+  editComment,
+  deleteComment
 };

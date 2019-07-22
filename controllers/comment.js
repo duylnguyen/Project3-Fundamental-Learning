@@ -70,6 +70,17 @@ commentRouter.put('/:commentId', (req,res) => {
       })
 })
 
+commentRouter.delete('/:commentId', (req, res) => {
+  req.body.problemId = req.params.problemId
+    commentApi.deleteComment(req.params.commentId)
+      .then((comment) => {
+        res.json('Comment Deleted')
+      })
+      .catch((err) => {
+        res.send(err)
+      })
+})
+
 module.exports = {
   commentRouter
 };
