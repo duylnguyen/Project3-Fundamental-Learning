@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+.listProblems {
+  width: 70%;
+  margin: 0 auto;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}

@@ -68,7 +68,7 @@ export default class Comments extends Component {
 
     render() {
         let commentsList = this.state.comments.map((comment) => {
-            let isCurrentlyEditing = comment._id === this.state.commentToUpdate._id
+        let isCurrentlyEditing = comment._id === this.state.commentToUpdate._id
             return (
                 <div key={comment._id}>
                     {/* <p>{comment.comment}</p>
@@ -86,27 +86,25 @@ export default class Comments extends Component {
             )
         })
 
-        return (
-            // this.state.isNewCommentFormDisplayed    
-                <div>
-                    <h3>Comments</h3>
+        return (   
+            <div>
+                <h3>Comments</h3>
                 <form onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment">Comment</label>
-                        <input 
-                            type="text"
-                            placeholder="Type comment here ..." 
-                            id="new-comment" 
-                            name="comment" 
-                            onChange={this.handleInputChange}
-                            value={this.state.newComment.comment}
-                            />
-                        <input type="submit" value="Create Comment"/>
+                    <input 
+                        type="text"
+                        placeholder="Type comment here ..." 
+                        id="new-comment" 
+                        name="comment" 
+                        onChange={this.handleInputChange}
+                        value={this.state.newComment.comment}
+                        />
+                    <input type="submit" value="Create Comment"/>
                 </form> 
-                    {/* <button onClick={this.handleToggleCreateCommentForm}>Add Comment</button> */}
-                    <div>
-                        {commentsList}
-                    </div>
+                <div>
+                    {commentsList}
                 </div>
+            </div>
         )
     }
 }

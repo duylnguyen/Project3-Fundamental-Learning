@@ -4,8 +4,8 @@ import Problems from './components/Problems.js'
 import Problem from './components/Problem'
 import Navbar from './components/Navbar'
 import NewProblemForm from './components/NewProblemForm'
-import Comments from './components/Comments'
 import './App.css';
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" component={Problems}/>
           <Route path="/problems/:problemId" component={Problem} />
           <Route path="/" component={NewProblemForm} />
-          <Route path="/problems/:problemId/comment" component={Comments} />
+          <Route path="/problems/:problemsId/comment" />
         </Switch>
       </Router>
     </div>
