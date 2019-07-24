@@ -35,11 +35,3 @@ export default class MenuExampleInvertedSecondary extends Component {
   }
 }
 
-{/* <div>
-        <nav>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/NewProblemForm">Create New Problem</Link></li>
-            </ul>
-        </nav>
-    </div> */}

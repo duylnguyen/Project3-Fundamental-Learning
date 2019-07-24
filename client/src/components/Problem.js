@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Comments from './Comments'
+// import Tab from './Tab'
+import { Tab } from 'semantic-ui-react'
+
 
 export default class Problem extends Component {
   state = {
@@ -53,6 +56,19 @@ export default class Problem extends Component {
       this.setState({ redirectToHome: true });
     });
   };
+
+  renderProblemContent = () => {
+    return (
+      <div>
+        <h1>{this.state.problem.name}</h1>
+        <p>{this.state.problem.method}</p>
+        <p>{this.state.problem.description}</p>
+        <p>{this.state.problem.solution}</p>
+        <button onClick={this.handleToggleEditForm}>Edit Problem</button>
+        <button onClick={this.handleDeleteProblem}>Delete Problem</button>
+      </div>
+    )
+  }
 
   render() {
     if (this.state.redirectToHome) {
@@ -115,13 +131,25 @@ export default class Problem extends Component {
       </form>
     ) : (
       <div>
+        {/* <Tab name={this.state.problem.name}/> */}
+        {/* <Tab
+          panes={
+            [
+              {menuItem: 'Problem', render: () => this.renderProblemContent()},
+              {menuItem: 'Comments', render: () => <Comments {...this.props}/>}
+            ]
+          }
+        />
+       */}
+  
+
         <h1>{this.state.problem.name}</h1>
         <p>{this.state.problem.method}</p>
         <p>{this.state.problem.description}</p>
         <p>{this.state.problem.solution}</p>
         <button onClick={this.handleToggleEditForm}>Edit Problem</button>
         <button onClick={this.handleDeleteProblem}>Delete Problem</button>
-        <Comments {...this.props}/>
+        {/* <Comments {...this.props}/> */}
       </div>
     );
   }
