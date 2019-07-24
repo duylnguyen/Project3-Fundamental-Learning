@@ -13,13 +13,21 @@ export default class MenuExampleInvertedSecondary extends Component {
     return (
       <Segment inverted>
         <Menu inverted pointing secondary>
-          <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item 
+            name='home' 
+            as={Link} 
+            to='/' 
+            active={activeItem === 'home'} 
+            onClick={this.handleItemClick} 
+            style={{ fontSize: '18px'}}
+            />
           <Menu.Item
             name='Create New Problem'
             as={Link}
             to='/NewProblemForm'
             active={activeItem === 'Create New Problem'}
             onClick={this.handleItemClick}
+            style={{ fontSize: '18px'}}
           />
         </Menu>
       </Segment>
