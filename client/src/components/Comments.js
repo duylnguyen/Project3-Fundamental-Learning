@@ -43,7 +43,8 @@ export default class Comments extends Component {
         axios.post(`/api/problem/${this.props.match.params.problemId}/comment`, this.state.newComment)
             .then((res) => {
                 this.setState({
-                    isNewCommentFormDisplayed: false
+                    isNewCommentFormDisplayed: false,
+                    newComment: {comment: ''}
                 })
             })
         this.getAllComments()

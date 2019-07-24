@@ -36,7 +36,8 @@ export default class Comment extends Component {
         event.preventDefault()
         this.props.handleUpdateSubmit()
         this.setState({
-            isEditCommentFormDisplayed: false
+            isEditCommentFormDisplayed: false,
+            comment: ''
         })
     }
 

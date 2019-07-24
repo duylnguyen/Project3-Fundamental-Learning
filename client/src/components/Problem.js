@@ -115,12 +115,12 @@ export default class Problem extends Component {
       </form>
     ) : (
       <div>
-        <button onClick={this.handleToggleEditForm}>Edit Problem</button>
-        <button onClick={this.handleDeleteProblem}>Delete Problem</button>
         <h1>{this.state.problem.name}</h1>
         <p>{this.state.problem.method}</p>
         <p>{this.state.problem.description}</p>
         <p>{this.state.problem.solution}</p>
+        <button onClick={this.handleToggleEditForm}>Edit Problem</button>
+        <button onClick={this.handleDeleteProblem}>Delete Problem</button>
         <Comments {...this.props}/>
       </div>
     );
