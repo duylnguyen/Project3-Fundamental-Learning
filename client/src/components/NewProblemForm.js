@@ -93,8 +93,8 @@ export default class NewProblemForm extends Component {
                     </textarea>  
                 </div>
                 <div>
-                    <button class="ui button"><Link to="/"></Link>Back</button>
-                    <input className="ui button" type="submit" value="Submit" />
+                    <button id="backBtn" className="ui button"><Link to="/"></Link>Back</button>
+                    <input id="submitBtn" className="ui button" type="submit" value="Submit" />
                 </div>
 
             </form>
