@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
 
+
 export default class Comments extends Component {
 
     state = {
@@ -80,23 +81,40 @@ export default class Comments extends Component {
                         handleUpdateSubmit={this.handleUpdateSubmit}
                         getAllComments={this.getAllComments}
                     />
+
                 </div>
             )
         })
 
         return (   
             <div>
-                <form onSubmit={this.handleFormSubmit}>
+                <form class="ui reply form" onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment">Comment</label>
-                    <input 
+                    <div class="field">
+                        <textarea 
+                            rows="3"
+                            type="text"
+                            placeholder="Type comment here ..." 
+                            id="new-comment" 
+                            name="comment" 
+                            onChange={this.handleInputChange}
+                            value={this.state.newComment.comment}
+                        >
+                        </textarea> 
+                    </div>
+                    {/* <input 
                         type="text"
                         placeholder="Type comment here ..." 
                         id="new-comment" 
                         name="comment" 
                         onChange={this.handleInputChange}
                         value={this.state.newComment.comment}
-                        />
-                    <input type="submit" value="Create Comment"/>
+                        /> */}
+                    {/* <input type="submit" value="Create Comment"/> */}
+                    <button class="ui icon primary left labeled button" type="submit">
+                        <i aria-hidden="true" class="edit icon"></i>
+                            Add Comment
+                        </button>
                 </form> 
                 <div>
                     {commentsList}
