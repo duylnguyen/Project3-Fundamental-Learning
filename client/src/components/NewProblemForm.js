@@ -31,7 +31,6 @@ export default class NewProblemForm extends Component {
   };
 
   render() {
-
     if (this.state.redirectToHome === true) {
         return <Redirect to="/" />
     }
@@ -68,7 +67,7 @@ export default class NewProblemForm extends Component {
                 </div>
 
                 <div className="field">
-                    <label for="form-textarea-control-opinion">Problem Description</label>
+                    <label htmlFor="form-textarea-control-opinion">Problem Description</label>
                     <textarea 
                         id="form-textarea-control-opinion" 
                         placeholder="Description..." 
@@ -102,58 +101,3 @@ export default class NewProblemForm extends Component {
     );
   }
 }
-
-
-{/* <form onSubmit={this.handleFormSubmit}>
-    <div>
-    <label htmlFor="new-problem-name">Problem</label>
-    <input
-        type="text"
-        id="new-problem-name"
-        name="name"
-        onChange={this.handleInputChange}
-        value={this.state.newProblem.name}
-    />
-    </div>
-
-    <div>
-    <label htmlFor="new-method">Method</label>
-    <input
-        type="text"
-        id="new-method"
-        name="method"
-        onChange={this.handleInputChange}
-        value={this.state.newProblem.method}
-    />
-    </div>
-
-    <div>
-    <label htmlFor="new-problem-description">Problem Description</label>
-    <textarea
-        type="text"
-        id="new-problem-description"
-        name="description"
-        rows="10"
-        col="10"
-        onChange={this.handleInputChange}
-        value={this.state.newProblem.description}
-    />
-    </div>
-
-    <div>
-    <label htmlFor="new-problem-solution">Solution</label>
-    <textarea
-        type="text"
-        id="new-problem-solution"
-        name="solution"
-        rows="10"
-        col="10"
-        onChange={this.handleInputChange}
-        value={this.state.newProblem.solution}
-    />
-    </div>
-
-    <div>
-    <input type="submit" value="Add Problem" />
-    </div>
-</form> */}

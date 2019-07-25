@@ -2,34 +2,10 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 export default class Comment extends Component {
-
     state = {
         comment: {},
         isEditCommentFormDisplayed: false,
     }
-
-    // componentDidMount() {
-    //     this.getComment()
-    // }
-
-    // getComment = () => {
-    //     axios.get(`/api/problem/${this.props.match.params.problemId}/comment/${this.props.commentId}`)
-    //         .then((res) => {
-    //             this.setState({comment: res.data})
-    //         })
-    // }
-
-    // getComment = async () => {
-    //     const res = await axios.get(`/api/problem/${this.props.match.params.problemId}/comment/${this.props.commentId}`)
-    //     this.setState({comment: res.data})
-    // }
-
-    // handleInputChange = (event) => {
-    //     const copiedComment = {...this.state.comment}
-    //     copiedComment[event.target.name] = event.target.value
-        
-    //     this.setState({comment: copiedComment})
-    // }
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -56,15 +32,15 @@ export default class Comment extends Component {
     render() {
         return (
             <div>
-                <div class="ui comments">
-                    <div class="comment">
-                        <div class="content">
-                            <a class="author">Anomynous</a>
-                            <div class="metadata"><span>{this.props.posted}</span></div>
+                <div className="ui comments">
+                    <div className="comment">
+                        <div className="content">
+                            <a href="#" class="author">Anomynous</a>
+                            <div className="metadata"><span>{this.props.posted}</span></div>
                             <pre className="commentText">{this.props.comment}</pre>
-                            <div class="actions"><a class="">Reply</a></div>
+                            
                                 {this.state.isEditCommentFormDisplayed
-                                ? <form class="ui reply form" onSubmit={this.handleSubmit}>
+                                ? <form className="ui reply form" onSubmit={this.handleSubmit}>
                                 <label htmlFor="edit-comment"></label>
                                 <div class="field">
                                     <textarea 
@@ -86,8 +62,8 @@ export default class Comment extends Component {
                                     </div>
                                 </form> 
                                 : <div className="commentBtn">
-                                    <button class="ui compact button" onClick={this.handleToggleEditCommentForm}>Edit Comment</button>
-                                    <button class="ui compact button" onClick={this.handleDeleteComment}>Delete Comment</button>
+                                    <button className="ui compact button" onClick={this.handleToggleEditCommentForm}>Edit Comment</button>
+                                    <button className="ui compact button" onClick={this.handleDeleteComment}>Delete Comment</button>
                                 </div>}
                         </div>
                     </div>
@@ -96,15 +72,3 @@ export default class Comment extends Component {
         )
     }
 }
-
-{/* <form onSubmit={this.handleSubmit}>
-    <label htmlFor="edit-comment"></label>
-    <input 
-        type="text"
-        id={this.props.commentId} 
-        name="comment" 
-        onChange={this.props.handleUpdateInputChange}
-        value={this.props.comment}
-    />
-    <input type="submit" value="Submit"/>
-</form>  */}

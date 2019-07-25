@@ -7,7 +7,6 @@ export default class Comments extends Component {
 
     state = {
         comments: [],
-        // isNewCommentFormDisplayed: false,
         newComment: {
             comment: '',
         },
@@ -20,15 +19,8 @@ export default class Comments extends Component {
 
     getAllComments = async () => {
         const res = await axios.get(`/api/problem/${this.props.match.params.problemId}/comment`)
-        console.log(res.data)
         this.setState({comments: res.data})
     }
-
-    // handleToggleCreateCommentForm = () => {
-    //     this.setState((state) => {
-    //         return {isNewCommentFormDisplayed: !state.isNewCommentFormDisplayed}
-    //     })
-    // }
 
     handleInputChange = (event) => {
         const copiedComment = {...this.state.newComment}
@@ -89,9 +81,9 @@ export default class Comments extends Component {
         return (   
             <div>
                 
-                <form class="ui reply form" onSubmit={this.handleFormSubmit}>
+                <form className="ui reply form" onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment"></label>
-                    <div class="field">
+                    <div className="field">
                         <textarea 
                             rows="3"
                             type="text"
@@ -104,8 +96,8 @@ export default class Comments extends Component {
                         </textarea> 
                     </div>
                         <div className="addCommentBtn">
-                        <button class="ui secondary button" type="submit">
-                            <i aria-hidden="true" class="edit icon"></i>
+                        <button className="ui secondary button" type="submit">
+                            <i aria-hidden="true" className="edit icon"></i>
                             Add Comment
                         </button>
                         </div>
