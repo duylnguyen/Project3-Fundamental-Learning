@@ -1,10 +1,16 @@
 const mongoose = require('./connection.js')
 
 const ProblemSchema = new mongoose.Schema({
- name: String,
- description: String,
- solution: String,
- method: String
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  solution: String,
+  method: String
 })
 
 const ProblemCollection = mongoose.model('Problem', ProblemSchema)

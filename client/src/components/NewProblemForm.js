@@ -24,7 +24,7 @@ export default class NewProblemForm extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    axios.post(`/api/problem`, this.state.newProblem)
+    axios.post(`/api/problem/`, this.state.newProblem)
         .then(res => {
             this.setState({ newProblem: res.data, redirectToHome: true});
     });

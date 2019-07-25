@@ -15,9 +15,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Problems}/>
-          <Route path="/problems/:problemId" component={TabView} />
           <Route path="/problems/new" component={NewProblemForm} />
-          <Route path="/problems/:problemsId/comment" />
+          <Route path="/problems/:problemId" component={TabView} />
+          {/* <Route path="/problems/:problemsId/comment" /> */}
         </Switch>
       </Router>
     </div>

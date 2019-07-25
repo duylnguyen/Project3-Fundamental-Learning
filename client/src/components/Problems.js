@@ -43,11 +43,3 @@ export default class Problems extends Component {
     }
 }
                 
-// {problemsList}
-
-                 
-
-                // <div>
-                //     <p><Link to={`/problems/${problem._id}`}>{problem.name}</Link></p>
-                //     <p>{problem.description}</p>
-                // </div>

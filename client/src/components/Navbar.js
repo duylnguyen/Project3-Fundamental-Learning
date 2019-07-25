@@ -24,7 +24,7 @@ export default class MenuExampleInvertedSecondary extends Component {
           <Menu.Item
             name='Create New Problem'
             as={Link}
-            to='/NewProblemForm'
+            to='/problems/new'
             active={activeItem === 'Create New Problem'}
             onClick={this.handleItemClick}
             style={{ fontSize: '18px'}}
