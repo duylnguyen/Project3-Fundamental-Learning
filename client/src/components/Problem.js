@@ -128,7 +128,7 @@ export default class Problem extends Component {
                     </textarea> 
                 </div>
                 <div>
-                    <button id="backBtn" className="ui button"><Link to="/"></Link>Back</button>
+                    <button id="backBtn" className="ui button" onClick={this.handleToggleEditForm}>Back</button>
                     <input id="submitBtn" className="ui button" type="submit" value="Submit" />
                 </div>
 
