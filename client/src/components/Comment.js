@@ -61,7 +61,7 @@ export default class Comment extends Component {
                         <div class="content">
                             <a class="author">Anomynous</a>
                             <div class="metadata"><span>{this.props.posted}</span></div>
-                            <pre>{this.props.comment}</pre>
+                            <pre className="commentText">{this.props.comment}</pre>
                             <div class="actions"><a class="">Reply</a></div>
                                 {this.state.isEditCommentFormDisplayed
                                 ? <form class="ui reply form" onSubmit={this.handleSubmit}>

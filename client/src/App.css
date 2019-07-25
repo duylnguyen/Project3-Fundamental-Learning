@@ -63,6 +63,11 @@ a.active.item {
   margin-bottom: 10px;
 }
 
-.ui.comments.reply.form, textarea {
+.ui.comments .reply.form textarea {
   height: 6em;
+}
+
+pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }

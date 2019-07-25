@@ -140,6 +140,12 @@ export default class Problem extends Component {
             <p>Posted on: {this.state.problem.posted}</p>
             <p>Method Used: {this.state.problem.method}</p>
             <p>{this.state.problem.description}</p>
+
+
+
+
+
+            
             <h4>Solution:</h4>
             <pre className="solutionBox">{this.state.problem.solution}</pre>
             <button className="ui button" onClick={this.handleToggleEditForm}>Edit Problem</button>
