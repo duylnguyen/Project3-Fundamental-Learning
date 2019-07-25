@@ -88,7 +88,7 @@ export default class Comments extends Component {
 
         return (   
             <div>
-                <div>
+                
                 <form class="ui reply form" onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment"></label>
                     <div class="field">
@@ -103,12 +103,14 @@ export default class Comments extends Component {
                         >
                         </textarea> 
                     </div>
+                        <div className="addCommentBtn">
                         <button class="ui secondary button" type="submit">
                             <i aria-hidden="true" class="edit icon"></i>
                             Add Comment
                         </button>
+                        </div>
                 </form> 
-                </div>
+            
                 <div>
                     {commentsList}
                 </div>

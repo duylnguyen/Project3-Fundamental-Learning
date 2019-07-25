@@ -59,21 +59,31 @@ export default class Comment extends Component {
                 <div class="ui comments">
                     <div class="comment">
                         <div class="content">
-                            <div class="author">Anomynous</div>
-                            <div class="metadata"><div>{this.props.posted}</div></div>
-                            <pre class="text">{this.props.comment}</pre>
+                            <a class="author">Anomynous</a>
+                            <div class="metadata"><span>{this.props.posted}</span></div>
+                            <pre>{this.props.comment}</pre>
                             <div class="actions"><a class="">Reply</a></div>
                                 {this.state.isEditCommentFormDisplayed
-                                ? <form onSubmit={this.handleSubmit}>
-                                    <label htmlFor="edit-comment"></label>
-                                    <input 
+                                ? <form class="ui reply form" onSubmit={this.handleSubmit}>
+                                <label htmlFor="edit-comment"></label>
+                                <div class="field">
+                                    <textarea 
+                                        rows="2"
                                         type="text"
+                                        placeholder="Type comment here ..." 
                                         id={this.props.commentId} 
                                         name="comment" 
                                         onChange={this.props.handleUpdateInputChange}
                                         value={this.props.comment}
-                                    />
-                                    <input type="submit" value="Submit"/>
+                                    >
+                                    </textarea> 
+                                </div>
+                                    <div className="addCommentBtn">
+                                    <button class="ui secondary button" type="submit">
+                                        <i aria-hidden="true" class="edit icon"></i>
+                                        Edit
+                                    </button>
+                                    </div>
                                 </form> 
                                 : <div className="commentBtn">
                                     <button class="ui compact button" onClick={this.handleToggleEditCommentForm}>Edit Comment</button>
@@ -82,8 +92,19 @@ export default class Comment extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
-               
+            </div>  
         )
     }
 }
+
+{/* <form onSubmit={this.handleSubmit}>
+    <label htmlFor="edit-comment"></label>
+    <input 
+        type="text"
+        id={this.props.commentId} 
+        name="comment" 
+        onChange={this.props.handleUpdateInputChange}
+        value={this.props.comment}
+    />
+    <input type="submit" value="Submit"/>
+</form>  */}
