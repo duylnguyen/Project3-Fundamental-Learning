@@ -17,5 +17,21 @@
   margin: 0 auto;
 }
 
+p{
+  font-size: 16px;
+}
 
+a.active.item {
+  font-size: 18px;
+  color: green;
+}
+
+.solutionBox {
+  border: solid 1px lightgray;
+  height: 15em;
+}
+
+#deleteProblem {
+  float: right;
+}
 

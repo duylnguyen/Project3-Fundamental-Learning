@@ -1,6 +1,10 @@
 const mongoose = require('./connection.js')
 
 const ProblemSchema = new mongoose.Schema({
+  posted: {
+    type: Date,
+    default: Date.now
+  },
   name: {
     type: String,
     required: true

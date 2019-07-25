@@ -71,8 +71,6 @@ export default class Comments extends Component {
         let isCurrentlyEditing = comment._id === this.state.commentToUpdate._id
             return (
                 <div key={comment._id}>
-                    {/* <p>{comment.comment}</p>
-                    <p>{comment.posted}</p> */}
                     <Comment
                         {...this.props}
                         comment={isCurrentlyEditing ? this.state.commentToUpdate.comment : comment.comment}
@@ -88,7 +86,6 @@ export default class Comments extends Component {
 
         return (   
             <div>
-                <h3>Comments</h3>
                 <form onSubmit={this.handleFormSubmit}>
                     <label htmlFor="new-comment">Comment</label>
                     <input 

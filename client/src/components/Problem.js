@@ -125,7 +125,7 @@ export default class Problem extends Component {
                         onChange={this.handleInputChange}
                         value={this.state.problem.solution}
                     >
-                    </textarea>  
+                    </textarea> 
                 </div>
                 <div>
                     <button id="backBtn" className="ui button"><Link to="/"></Link>Back</button>
@@ -134,63 +134,22 @@ export default class Problem extends Component {
 
             </form>
         </div>
-      
-      // <form onSubmit={this.handleSubmit}>
-      //   <div>
-      //     <label htmlFor="problem-name">Problem</label>
-      //     <input
-      //       type="text"
-      //       id="problem-name"
-      //       name="name"
-      //       onChange={this.handleInputChange}
-      //       value={this.state.problem.name}
-      //     />
-      //   </div>
+        ) : (
+          <div>
+            <h1>{this.state.problem.name}</h1>
+            <p>Posted on: {this.state.problem.posted}</p>
+            <p>Method Used: {this.state.problem.method}</p>
+            <p>{this.state.problem.description}</p>
+            <h4>Solution:</h4>
+            <pre className="solutionBox">{this.state.problem.solution}</pre>
+            <button className="ui button" onClick={this.handleToggleEditForm}>Edit Problem</button>
+            <button id="deleteProblem" className="ui button" onClick={this.handleDeleteProblem}>Delete Problem</button>
+          </div>
+          );
+      }
+  }
 
-      //   <div>
-      //     <label htmlFor="problem-method">Method</label>
-      //     <input
-      //       type="text"
-      //       id="problem-method"
-      //       name="method"
-      //       onChange={this.handleInputChange}
-      //       value={this.state.problem.method}
-      //     />
-      //   </div>
-
-      //   <div>
-      //     <label htmlFor="problem-description">Problem Description</label>
-      //     <textarea
-      //       type="text"
-      //       id="problem-description"
-      //       name="description"
-      //       rows="10"
-      //       col="10"
-      //       onChange={this.handleInputChange}
-      //       value={this.state.problem.description}
-      //     />
-      //   </div>
-
-      //   <div>
-      //     <label htmlFor="problem-solution">Solution</label>
-      //     <textarea
-      //       type="text"
-      //       id="problem-solution"
-      //       name="solution"
-      //       rows="10"
-      //       col="10"
-      //       onChange={this.handleInputChange}
-      //       value={this.state.problem.solution}
-      //     />
-      //   </div>
-
-      //   <div>
-      //     <input type="submit" value="Update Problem" />
-      //   </div>
-      // </form>
-    ) : (
-      <div>
-        {/* <Tab name={this.state.problem.name}/> */}
+{/* <Tab name={this.state.problem.name}/> */}
         {/* <Tab
           panes={
             [
@@ -200,16 +159,3 @@ export default class Problem extends Component {
           }
         />
        */}
-  
-
-        <h1>{this.state.problem.name}</h1>
-        <p>{this.state.problem.method}</p>
-        <p>{this.state.problem.description}</p>
-        <p>{this.state.problem.solution}</p>
-        <button onClick={this.handleToggleEditForm}>Edit Problem</button>
-        <button onClick={this.handleDeleteProblem}>Delete Problem</button>
-        {/* <Comments {...this.props}/> */}
-      </div>
-    );
-  }
-}
