@@ -46,7 +46,7 @@ export default class CodeEditor extends React.Component {
                 {
                     this.state.problem.codePenHash
                         ? <Codepen hash={this.state.problem.codePenHash} user={this.state.problem.codePenUserName} />
-                        : 'Loading...'
+                        : 'Working on Loading Screen Semantic React UI'
                 }
                 {
                     // this.state.problem.codePenHash
