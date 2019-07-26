@@ -66,6 +66,7 @@ export default class Problem extends Component {
     if(this.state.redirectToHome === true) {
       return <Redirect to="/" /> 
     }
+
     return this.state.isEditFormDisplayed ? (
       <div className="formSubmit">
         <form className="ui form" onSubmit={this.handleSubmit}>
@@ -133,9 +134,9 @@ export default class Problem extends Component {
 
         {this.state.isSolutionDisplayed ? (
         <div>
-        <h4>Solution:</h4>
-        <pre className="solutionBox">{this.state.problem.solution}</pre>
-        <button id="toggleHideBtn" className="ui secondary button" onClick={this.handleToggleSolution}>Hide</button>
+          <h4>Solution:</h4>
+          <pre className="solutionBox">{this.state.problem.solution}</pre>
+          <button id="toggleHideBtn" className="ui secondary button" onClick={this.handleToggleSolution}>Hide</button>
         </div>
         ) : (
         <div>

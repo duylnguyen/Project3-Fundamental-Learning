@@ -28,7 +28,9 @@ a.active.item {
 
 .solutionBox {
   border: solid 1px lightgray;
-  height: 15em;
+  height: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .deleteAndEditProblemBtn {
