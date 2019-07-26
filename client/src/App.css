@@ -47,6 +47,8 @@ a.active.item {
 
 .commentBtn {
   margin: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .text {
@@ -75,4 +77,29 @@ pre {
 
 #toggleHideBtn, #toggleShowBtn {
   margin: 10px 0;
+  margin-right: 10px;
+}
+
+.note {
+  font-weight: 900;
+}
+
+.hover.click {
+  display: block;
+  background-color: #000;
+  color: #FFF;
+}
+.hover:hover .click {
+  display: block;
+  background-color: #CCC;
+  color: #000;
+}
+
+.hover {
+  color: inherit;
+}
+
+.problemName {
+  font-size: 22px;
+  font-weight: 800;
 }

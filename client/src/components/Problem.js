@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom"
 
 export default class Problem extends Component {
   state = {
     problem: {},
     isEditFormDisplay: false,
-    isSolutionDisplayed: false
+    isSolutionDisplayed: false,
+    redirectToHome: false
   };
 
   componentDidMount() {
@@ -54,12 +56,16 @@ export default class Problem extends Component {
   };
 
   handleDeleteProblem = () => {
-    axios.delete(`/api/problem/${this.state.problem._id}`).then(() => {
+    axios.delete(`/api/problem/${this.state.problem._id}`)
+    .then(() => {
       this.setState({ redirectToHome: true });
     });
   };
 
   render() {
+    if(this.state.redirectToHome === true) {
+      return <Redirect to="/" /> 
+    }
     return this.state.isEditFormDisplayed ? (
       <div className="formSubmit">
         <form className="ui form" onSubmit={this.handleSubmit}>
@@ -129,16 +135,25 @@ export default class Problem extends Component {
         <div>
         <h4>Solution:</h4>
         <pre className="solutionBox">{this.state.problem.solution}</pre>
-        <button id="toggleHideBtn" className="ui button" onClick={this.handleToggleSolution}>Hide</button>
+        <button id="toggleHideBtn" className="ui secondary button" onClick={this.handleToggleSolution}>Hide</button>
         </div>
         ) : (
         <div>
-          <button id="toggleShowBtn" className="ui button" onClick={this.handleToggleSolution}>Solution</button>
+          <button 
+            id="toggleShowBtn" 
+            className="ui secondary button" 
+            onClick={this.handleToggleSolution}
+          >
+            Solution
+          </button>
+          <span className="note">
+            Note: Only use when you are really struggle
+          </span>
         </div>
         )}
         <div className="deleteAndEditProblemBtn">
-        <button className="ui button" onClick={this.handleToggleEditForm}>Edit Problem</button>
-        <button className="ui button" onClick={this.handleDeleteProblem}>Delete Problem</button>
+          <button className="ui button" onClick={this.handleToggleEditForm}>Edit Problem</button>
+          <button className="ui button" onClick={this.handleDeleteProblem}>Delete Problem</button>
         </div>
       </div>
       );

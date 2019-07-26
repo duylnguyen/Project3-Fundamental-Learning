@@ -22,10 +22,14 @@ export default class Problems extends Component {
                 <table className="ui striped table">
                     <tbody className="">
                         <tr className="top aligned">
-                            <td className="">
-                                <p><Link to={`/problems/${problem._id}`}>{problem.name}</Link></p>
-                                <p>{problem.description}</p>
-                            </td>  
+                            <Link className="hover" to={`/problems/${problem._id}`}> 
+                                <div>
+                                    <td className="click">
+                                        <p className="problemName">{problem.name}</p>
+                                        <p>{problem.description}</p>
+                                    </td>
+                                </div> 
+                            </Link>
                         </tr>  
                     </tbody>
                 </table>  
