@@ -40,23 +40,35 @@ export default class CodeEditor extends React.Component {
                     
                 /> */}
                 <Codepen hash={this.state.problem.codePenHash} user={this.state.problem.codePenUserName} />
-                {/* <p 
+                <p 
                     className="codepen" 
                     data-height="265" 
                     data-theme-id="0" data-default-tab="result" 
                     data-user="duylnguyen" 
-                    data-slug-hash="RXGXBG" 
+                    data-slug-hash="qeqWPR" 
                     style={
                         {
                             height: "265px",
-                            box-sizing: "border-box",
+                            boxSizing: "border-box",
                             display: "flex",
-                            align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" }}
-                    data-pen-title="RXGXBG"
-                        >*/}
+                            alignItems: "center",
+                            justifyCcontent: "center",
+                            border: "2px solid",
+                            margin: "1em 0",
+                            padding: "1em"
+                        }
+                    }
+                    data-pen-title="Sum"
+                >
                 
-                
-            </div>
+                    <span>
+                        See the Pen <a href="https://codepen.io/duylnguyen/pen/qeqWPR/">
+                    Sum</a> by Duy Nguyen (<a href="https://codepen.io/duylnguyen">@duylnguyen</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                    </span>
+                </p>
+                        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                                    </div>
     
         );
     }
