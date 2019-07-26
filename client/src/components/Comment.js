@@ -35,7 +35,7 @@ export default class Comment extends Component {
                 <div className="ui comments">
                     <div className="comment">
                         <div className="content">
-                            <a href="#" class="author">Anomynous</a>
+                            <a href="#" className="author">Anomynous</a>
                             <div className="metadata"><span>{this.props.posted}</span></div>
                             <pre className="commentText">{this.props.comment}</pre>
                             

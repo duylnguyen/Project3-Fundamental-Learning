@@ -84,6 +84,32 @@ export default class Problem extends Component {
           </div>
 
           <div className="field">
+              <label htmlFor="problem-hash">Codepen Hash Code</label>
+              <div className="ui input">
+                  <input 
+                    type="text" 
+                    id="problem-hash"
+                    name="codePenHash"
+                    onChange={this.handleInputChange}
+                    value={this.state.problem.codePenHash}
+                  />
+              </div>
+          </div>
+
+          <div className="field">
+              <label htmlFor="problem-userName">Codepen User Name</label>
+              <div className="ui input">
+                  <input 
+                    type="text" 
+                    id="problem-userName"
+                    name="codePenUserName"
+                    onChange={this.handleInputChange}
+                    value={this.state.problem.codePenUserName}
+                  />
+              </div>
+          </div>
+
+          <div className="field">
             <label htmlFor="method">Method Used</label>
             <div className="ui input">
                 <input 

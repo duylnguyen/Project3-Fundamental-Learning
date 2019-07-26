@@ -9,7 +9,8 @@ export default class NewProblemForm extends Component {
       name: "",
       method: "",
       description: "",
-      solution: ""
+      solution: "",
+      codePenHash: ""
     },
     redirectToHome: false
   };
@@ -48,6 +49,34 @@ export default class NewProblemForm extends Component {
                             name="name"
                             onChange={this.handleInputChange}
                             value={this.state.newProblem.name}
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label htmlFor="new-problem-hash">Codepen Hash</label>
+                    <div className="ui input">
+                        <input 
+                            type="text" 
+                            placeholder="Codepen Hash" 
+                            id="new-problem-hash"
+                            name="name"
+                            onChange={this.handleInputChange}
+                            value={this.state.newProblem.codePenHash}
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label htmlFor="new-problem-userName">CodePen User Name</label>
+                    <div className="ui input">
+                        <input 
+                            type="text" 
+                            placeholder="Codepen User Name" 
+                            id="new-problem-userName"
+                            name="codePenUserName"
+                            onChange={this.handleInputChange}
+                            value={this.state.newProblem.codePenUserName}
                         />
                     </div>
                 </div>
