@@ -5,7 +5,7 @@ export default class Problem extends Component {
   state = {
     problem: {},
     isEditFormDisplay: false,
-    redirectToHome: false
+    isSolutionDisplayed: false
   };
 
   componentDidMount() {
@@ -33,8 +33,7 @@ export default class Problem extends Component {
       .then(res => {
         this.setState({
           problem: res.data,
-          isEditFormDisplayed: false,
-          isSolutionDisplayed: false
+          isEditFormDisplayed: false
         })
       })
       .then(() => {
@@ -45,6 +44,12 @@ export default class Problem extends Component {
   handleToggleEditForm = () => {
     this.setState(state => {
       return { isEditFormDisplayed: !state.isEditFormDisplayed };
+    });
+  };
+
+  handleToggleSolution = () => {
+    this.setState(state => {
+      return { isSolutionDisplayed: !state.isSolutionDisplayed };
     });
   };
 
@@ -85,7 +90,7 @@ export default class Problem extends Component {
           </div>
 
           <div className="field">
-            <label for="form-textarea-control-opinion">Problem Description</label>
+            <label htmlFor="form-textarea-control-opinion">Problem Description</label>
             <textarea 
                 id="form-textarea-control-opinion"                        
                 rows="6"
@@ -120,15 +125,21 @@ export default class Problem extends Component {
         <p>Method Used: {this.state.problem.method}</p>
         <p>{this.state.problem.description}</p>
 
-
-
-
-
-
+        {this.state.isSolutionDisplayed ? (
+        <div>
         <h4>Solution:</h4>
         <pre className="solutionBox">{this.state.problem.solution}</pre>
+        <button id="toggleHideBtn" className="ui button" onClick={this.handleToggleSolution}>Hide</button>
+        </div>
+        ) : (
+        <div>
+          <button id="toggleShowBtn" className="ui button" onClick={this.handleToggleSolution}>Solution</button>
+        </div>
+        )}
+        <div className="deleteAndEditProblemBtn">
         <button className="ui button" onClick={this.handleToggleEditForm}>Edit Problem</button>
-        <button id="deleteProblem" className="ui button" onClick={this.handleDeleteProblem}>Delete Problem</button>
+        <button className="ui button" onClick={this.handleDeleteProblem}>Delete Problem</button>
+        </div>
       </div>
       );
     }

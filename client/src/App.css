@@ -31,8 +31,9 @@ a.active.item {
   height: 15em;
 }
 
-#deleteProblem {
-  float: right;
+.deleteAndEditProblemBtn {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .userName {
@@ -70,4 +71,8 @@ a.active.item {
 pre {
   word-wrap: break-word;
   white-space: pre-wrap;
+}
+
+#toggleHideBtn, #toggleShowBtn {
+  margin: 10px 0;
 }
