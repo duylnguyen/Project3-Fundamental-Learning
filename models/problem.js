@@ -14,7 +14,10 @@ const ProblemSchema = new mongoose.Schema({
     required: true
   },
   solution: String,
-  method: String
+  method: {
+    type: String,
+    default: 'None'
+  }
 })
 
 const ProblemCollection = mongoose.model('Problem', ProblemSchema)

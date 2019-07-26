@@ -130,7 +130,7 @@ export default class Problem extends Component {
         <h1>{this.state.problem.name}</h1>
         <p>Posted on: {this.state.problem.posted}</p>
         <p>Method Used: {this.state.problem.method}</p>
-        <p>{this.state.problem.description}</p>
+        <pre>{this.state.problem.description}</pre>
 
         {this.state.isSolutionDisplayed ? (
         <div>
