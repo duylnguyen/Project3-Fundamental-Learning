@@ -45,8 +45,8 @@ export default class CodeEditor extends React.Component {
                 /> */}
                 {
                     this.state.problem.codePenHash
-                        ? <Codepen hash={this.state.problem.codePenHash || ""} user={this.state.problem.codePenUserName || ""} />
-                        : null
+                        ? <Codepen hash={this.state.problem.codePenHash} user={this.state.problem.codePenUserName} />
+                        : 'Loading...'
                 }
                 {
                     // this.state.problem.codePenHash
