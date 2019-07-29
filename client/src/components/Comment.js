@@ -62,8 +62,18 @@ export default class Comment extends Component {
                                     </div>
                                 </form> 
                                 : <div className="commentBtn">
-                                    <button className="ui compact button" onClick={this.handleToggleEditCommentForm}>Edit Comment</button>
-                                    <button className="ui compact button" onClick={this.handleDeleteComment}>Delete Comment</button>
+                                    <button 
+                                        className="ui compact button" 
+                                        onClick={this.handleToggleEditCommentForm}
+                                    >
+                                        Edit Comment
+                                    </button>
+                                    <button 
+                                        className="ui compact button" 
+                                        onClick={this.handleDeleteComment}
+                                    >
+                                        Delete Comment
+                                    </button>
                                 </div>}
                         </div>
                     </div>

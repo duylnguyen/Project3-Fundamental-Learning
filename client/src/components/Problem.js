@@ -3,12 +3,14 @@ import axios from "axios";
 import { Redirect } from "react-router-dom"
 import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
+import AceEditor from 'react-ace';
+ 
+import 'brace/mode/java';
+import 'brace/theme/github';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
 require('codemirror/mode/javascript/javascript.js');
-
-
 
 export default class Problem extends Component {
   state = {
@@ -16,6 +18,7 @@ export default class Problem extends Component {
     isEditFormDisplay: false,
     isSolutionDisplayed: false,
     redirectToHome: false,
+    newSolution: ''
   };
 
   componentDidMount() {
@@ -35,6 +38,15 @@ export default class Problem extends Component {
 
     this.setState({ problem: copiedProblem });
   };
+
+  onChange = (newValue)  => {
+    const {
+      problem
+    } = this.state;
+    problem.solution = newValue;
+    this.setState({problem})
+    console.log(newValue)
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -124,14 +136,24 @@ export default class Problem extends Component {
 
           <div className="field">
             <label htmlFor="form-textarea-control-opinion">Solution</label>
-            <textarea 
+            {/* <textarea 
                 id="form-textarea-control-opinion"                       
                 rows="6"
                 name="solution"
                 onChange={this.handleInputChange}
                 value={this.state.problem.solution}
             >
-            </textarea> 
+            </textarea>  */}
+
+            <AceEditor
+              mode="javascript"
+              theme="github"
+              onChange={this.onChange}
+              value={this.state.problem.solution}
+              name="my-editor"
+              id="my-editor"
+              editorProps={{$blockScrolling: true}}
+            />
           </div>
 
           <div>
@@ -150,13 +172,12 @@ export default class Problem extends Component {
         {this.state.isSolutionDisplayed ? (
         <div>
           <h4>Solution:</h4>
-          {/* <pre className="solutionBox">{this.state.problem.solution}</pre> */}
           <div>
-                <CodeMirror
-                    value={this.state.problem.solution}
-                    options={options}
-                />
-            </div>
+            <CodeMirror
+                value={this.state.problem.solution}
+                options={options}
+            />
+          </div>
 
           <button id="toggleHideBtn" className="ui secondary button" onClick={this.handleToggleSolution}>Hide</button>
         </div>
