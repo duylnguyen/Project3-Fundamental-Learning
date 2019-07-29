@@ -19,12 +19,12 @@ For project #3, I choose to create a coding learning environment with simple cha
 
 ## Features
 3 models:                           
-    - problem model           
-    - comment model 
+- problem model           
+- comment model 
 
 3 controllers:   
-    - problem controller
-    - comment controller
+- problem controller
+- comment controller
 
 ## Future Improvements
 - Create User Authentication
@@ -32,8 +32,8 @@ For project #3, I choose to create a coding learning environment with simple cha
 - Add testing feature to be able to counting points 
 
 ## Wireframe
-![alt text](./images/Project3-HomePage.png "Wireframe Image")
-![alt text](./images/SingleProblem.png "Wireframe Image")
+![alt text](./client/images/Project3-HomePage.png "Wireframe Image")
+![alt text](./client/images/SingleProblem.png "Wireframe Image")
 
 ## ERD
-![alt text](./images/Project3-ERD.png "Wireframe Image")
+![alt text](./client/images/Project3-ERD.png "Wireframe Image")
