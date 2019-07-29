@@ -8,8 +8,13 @@ For project #3, I choose to create a coding learning environment with simple cha
     - Node.Js
     - Mongo DB
     - Mongoose
-    - Semantic Reacts UI
     - JavaScript
+
+## Dependencies:
+    - Semantic Reacts UI
+    - Ace Editor
+    - Code Mirror2
+    - Repl.it
 
 ## Links
 - Project Planning:
