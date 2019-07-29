@@ -4,7 +4,6 @@ import Problem from './Problem'
 import Comments from './Comments'
 import CodeEmbeded from './CodeEmbeded'
 
-
 export default class TabView extends Component {
     render() {
         return(

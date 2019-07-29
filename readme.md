@@ -32,8 +32,8 @@ For project #3, I choose to create a coding learning environment with simple cha
 - Add testing feature to be able to counting points 
 
 ## Wireframe
-![alt text](./client/images/Project3-HomePage.png "Wireframe Image")
-![alt text](./client/images/SingleProblem.png "Wireframe Image")
+![alt text](./client/src/images/Project3-HomePage.png "Wireframe Image")
+![alt text](./client/src/images/Project3-SingleProblem.png "Wireframe Image")
 
 ## ERD
-![alt text](./client/images/Project3-ERD.png "Wireframe Image")
+![alt text](./client/src/images/Project3-ERD.png "Wireframe Image")
