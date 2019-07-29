@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom"
 import { Link } from 'react-router-dom'
 import axios from "axios";
+import AceEditor from 'react-ace';
+import 'brace/mode/java';
+import 'brace/theme/solarized_dark';
 
 export default class NewProblemForm extends Component {
   state = {
@@ -21,6 +24,15 @@ export default class NewProblemForm extends Component {
 
     this.setState({ newProblem: copiedProblem });
   };
+
+  onChange = (newValue)  => {
+    const {
+      newProblem
+    } = this.state;
+    newProblem.solution = newValue;
+    this.setState({newProblem})
+    console.log(newValue)
+  }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -81,18 +93,20 @@ export default class NewProblemForm extends Component {
                 </div>
 
                 <div className="field">
-                    <label for="form-textarea-control-opinion">Solution</label>
-                    <textarea 
-                        id="form-textarea-control-opinion" 
-                        placeholder="Solution..." 
-                        rows="6"
-                        name="solution"
-                        onChange={this.handleInputChange}
-                        value={this.state.newProblem.solution}
-                    >
-                    </textarea>  
+                    <label htmlFor="form-textarea-control-opinion">Solution</label>
+
+                    <AceEditor
+                    mode="javascript"
+                    theme="solarized_dark"
+                    onChange={this.onChange}
+                    value={this.state.newProblem.solution}
+                    name="my-editor"
+                    id="my-editor"
+                    editorProps={{$blockScrolling: true}}
+                    />
                 </div>
-                <div>
+
+                <div className="newProblemBtn">
                     <button id="backBtn" className="ui button"><Link to="/"></Link>Back</button>
                     <input id="submitBtn" className="ui button" type="submit" value="Submit" />
                 </div>

@@ -4,9 +4,8 @@ import { Redirect } from "react-router-dom"
 import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
 import AceEditor from 'react-ace';
- 
 import 'brace/mode/java';
-import 'brace/theme/github';
+import 'brace/theme/solarized_dark';
 
 require('codemirror/lib/codemirror.css');
 require('codemirror/theme/material.css');
@@ -136,18 +135,10 @@ export default class Problem extends Component {
 
           <div className="field">
             <label htmlFor="form-textarea-control-opinion">Solution</label>
-            {/* <textarea 
-                id="form-textarea-control-opinion"                       
-                rows="6"
-                name="solution"
-                onChange={this.handleInputChange}
-                value={this.state.problem.solution}
-            >
-            </textarea>  */}
 
             <AceEditor
               mode="javascript"
-              theme="github"
+              theme="solarized_dark"
               onChange={this.onChange}
               value={this.state.problem.solution}
               name="my-editor"

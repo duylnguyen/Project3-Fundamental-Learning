@@ -113,3 +113,11 @@ pre {
 .dropDown {
   margin-top: 10px;
 }
+
+.ace_content {
+  border: solid 1px lightgray;
+}
+
+.newProblemBtn {
+  margin-bottom: 40px;
+}
