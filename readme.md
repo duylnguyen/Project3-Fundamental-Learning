@@ -1,31 +1,39 @@
-# mern-template-project
+# PROJECT #3: Fundamental Coding
 
-# Setup A New Project From This Template
+## Overview
+For project #3, I choose to create a coding learning environment with simple challenges for people who want to learn basic coding. The users could solve the problems or create a problem which they can't sovle for others user's help. The answer are provided but recommend the users to try to solve it on their own. They could also leave the comments to ask more questions if they still don't understand the solutions for the problem.
+## Technologies Used
+    - Express
+    - React
+    - Node.Js
+    - Mongo DB
+    - Mongoose
+    - Semantic Reacts UI
+    - JavaScript
 
-If you are starting a new project do the following:
+## Links
+- Project Planning:
+<a href="https://trello.com/b/eUJNTdxM/fundamental-learning" target="_blank">Trello</a>
+- Project Hosted:
+<a href="https://fundamental-learning.herokuapp.com/" target="_blank">Heroku</a>
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+## Features
+3 models:                           
+    - problem model           
+    - comment model 
 
-# Setup A New Project Without This Template
+3 controllers:   
+    - problem controller
+    - comment controller
 
-If you want to start a project without using this template directory do the
-following:
+## Future Improvements
+- Create User Authentication
+- Add user model for users problems collections
+- Add testing feature to be able to counting points 
 
+## Wireframe
+![alt text](./images/Project3-HomePage.png "Wireframe Image")
+![alt text](./images/SingleProblem.png "Wireframe Image")
 
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+## ERD
+![alt text](./images/Project3-ERD.png "Wireframe Image")

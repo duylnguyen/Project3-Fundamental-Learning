@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom"
+import {Controlled as CodeMirror} from 'react-codemirror2';
+import 'codemirror/lib/codemirror.css';
+
+require('codemirror/lib/codemirror.css');
+require('codemirror/theme/material.css');
+require('codemirror/mode/javascript/javascript.js');
+
+
 
 export default class Problem extends Component {
   state = {
     problem: {},
     isEditFormDisplay: false,
     isSolutionDisplayed: false,
-    redirectToHome: false
+    redirectToHome: false,
   };
 
   componentDidMount() {
@@ -15,11 +23,11 @@ export default class Problem extends Component {
   }
 
   getSingleProblem = async () => {
-    const res = await axios.get(
-      `/api/problem/${this.props.match.params.problemId}`
-    );
-    this.setState({ problem: res.data });
-  };
+    axios.get(`/api/problem/${this.props.match.params.problemId}`)
+      .then(res => {
+        this.setState({ problem: res.data })
+      })
+  }
 
   handleInputChange = event => {
     const copiedProblem = { ...this.state.problem };
@@ -63,6 +71,12 @@ export default class Problem extends Component {
   };
 
   render() {
+    let options = {
+      lineNumbers: true,
+      theme: "material",
+      mode: "javascript",
+    }
+
     if(this.state.redirectToHome === true) {
       return <Redirect to="/" /> 
     }
@@ -79,32 +93,6 @@ export default class Problem extends Component {
                     name="name"
                     onChange={this.handleInputChange}
                     value={this.state.problem.name}
-                  />
-              </div>
-          </div>
-
-          <div className="field">
-              <label htmlFor="problem-hash">Codepen Hash Code</label>
-              <div className="ui input">
-                  <input 
-                    type="text" 
-                    id="problem-hash"
-                    name="codePenHash"
-                    onChange={this.handleInputChange}
-                    value={this.state.problem.codePenHash}
-                  />
-              </div>
-          </div>
-
-          <div className="field">
-              <label htmlFor="problem-userName">Codepen User Name</label>
-              <div className="ui input">
-                  <input 
-                    type="text" 
-                    id="problem-userName"
-                    name="codePenUserName"
-                    onChange={this.handleInputChange}
-                    value={this.state.problem.codePenUserName}
                   />
               </div>
           </div>
@@ -145,10 +133,11 @@ export default class Problem extends Component {
             >
             </textarea> 
           </div>
-            <div>
-              <button id="backBtn" className="ui button" onClick={this.handleToggleEditForm}>Back</button>
-              <input id="submitBtn" className="ui button" type="submit" value="Submit" />
-            </div>
+
+          <div>
+            <button id="backBtn" className="ui button" onClick={this.handleToggleEditForm}>Back</button>
+            <input id="submitBtn" className="ui button" type="submit" value="Submit" />
+          </div>
         </form>
       </div>
       ) : (
@@ -161,7 +150,14 @@ export default class Problem extends Component {
         {this.state.isSolutionDisplayed ? (
         <div>
           <h4>Solution:</h4>
-          <pre className="solutionBox">{this.state.problem.solution}</pre>
+          {/* <pre className="solutionBox">{this.state.problem.solution}</pre> */}
+          <div>
+                <CodeMirror
+                    value={this.state.problem.solution}
+                    options={options}
+                />
+            </div>
+
           <button id="toggleHideBtn" className="ui secondary button" onClick={this.handleToggleSolution}>Hide</button>
         </div>
         ) : (

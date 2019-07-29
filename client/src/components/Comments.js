@@ -18,8 +18,10 @@ export default class Comments extends Component {
     }
 
     getAllComments = async () => {
-        const res = await axios.get(`/api/problem/${this.props.match.params.problemId}/comment`)
-        this.setState({comments: res.data})
+        axios.get(`/api/problem/${this.props.match.params.problemId}/comment`)
+            .then(res => {
+                this.setState({comments: res.data})
+            })
     }
 
     handleInputChange = (event) => {
@@ -73,7 +75,6 @@ export default class Comments extends Component {
                         handleUpdateSubmit={this.handleUpdateSubmit}
                         getAllComments={this.getAllComments}
                     />
-
                 </div>
             )
         })

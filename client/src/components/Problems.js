@@ -19,7 +19,7 @@ export default class Problems extends Component {
     render() {
         let problemsList = this.state.problems.map((problem) => {
             return (
-                <table className="ui striped table">
+                <table className="ui striped table" key={problem._id}>
                     <tbody className="">
                         <tr className="top aligned">
                             <Link className="hover" to={`/problems/${problem._id}`}> 

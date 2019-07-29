@@ -26,15 +26,6 @@ commentRouter.get('/', (req, res) => {
       });
 });
 
-// commentRouter.post("/", async (req, res) => {
-//   try {
-//     const newComment = await commentApi.addComment(req.body);
-//     res.json(newComment);
-//   } catch (err) {
-//     res.send(err);
-//   }
-// });
-
 commentRouter.post('/', (req, res) => {
   req.body.problemId = req.params.problemId
     commentApi.addComment(req.body)

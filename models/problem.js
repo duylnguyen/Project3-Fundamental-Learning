@@ -18,8 +18,6 @@ const ProblemSchema = new mongoose.Schema({
     type: String,
     default: 'None'
   },
-  codePenHash: String,
-  codePenUserName: String
 })
 
 const ProblemCollection = mongoose.model('Problem', ProblemSchema)
