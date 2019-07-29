@@ -18,11 +18,11 @@ For project #3, I choose to create a coding learning environment with simple cha
 <a href="https://fundamental-learning.herokuapp.com/" target="_blank">Heroku</a>
 
 ## Features
-3 models:                           
+2 models:                           
 - problem model           
 - comment model 
 
-3 controllers:   
+2 controllers:   
 - problem controller
 - comment controller
 
